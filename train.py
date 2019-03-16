@@ -46,10 +46,10 @@ if __name__ == '__main__':
 
     parser = argparse.ArgumentParser()
     parser.add_argument('--gpu', default="0")
-    parser.add_argument('--dataset', choices=['cifar-10', 'cifar-100', 'svhn'])
-    parser.add_argument('--k', type=int, help='filters per layer')
-    parser.add_argument('--T', type=int, help='total layers in all blocks')
-    parser.add_argument('--dir', help='folder to store models')
+    parser.add_argument('--dataset', default='cifar-10', choices=['cifar-10', 'cifar-100', 'svhn'])
+    parser.add_argument('--k', default=12, type=int, help='filters per layer')
+    parser.add_argument('--T', default=5,type=int, help='total layers in all blocks')
+    parser.add_argument('--dir', default='checkpoint/', help='folder to store models')
     parser.add_argument('--if_a', default=False, type=bool,
                         help='if use attentional transition')
     parser.add_argument('--if_b', default=False, type=bool,
