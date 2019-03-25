@@ -57,7 +57,7 @@ def graph_demo():
         print('c_new_value:\n',c_new_value)
         print('new_sess的图属性:\n',new_sess.graph)
         #1)将图写入本地events文件
-        tf.summary.FileWriter('./summary',graph = new_sess.graph)
+        tf.summary.FileWriter('./demo/day_01/summary',graph = new_sess.graph)
 
     return None
 
@@ -145,20 +145,35 @@ def liner_regression():
     """ 
     自实现一个线性回归
     """
-    #1）准备数据
-    X = tf.random_normal(shape = [100, 1])
-    y_true = tf.matmul(X, [[0.8]]) + 0.7
+    with tf.variable_scope('prepare_data'):
+        #1）准备数据
+        X = tf.random_normal(shape = [100, 1], name = 'feature')
+        y_true = tf.matmul(X, [[0.8]]) + 0.7
     
-    #2）构造模型
-    weights =  tf.Variable(initial_value = tf.random_normal(shape = [1, 1]))
-    bias = tf.Variable(initial_value = tf.random_normal(shape = [1, 1]))
-    y_predict = tf.matmul(X, weights) + bias
+    with tf.variable_scope('creat_model'):
+        #2）构造模型
+        weights =  tf.Variable(initial_value = tf.random_normal(shape = [1, 1]), name = 'Weights')
+        bias = tf.Variable(initial_value = tf.random_normal(shape = [1, 1]), name = 'Bias')
+        y_predict = tf.matmul(X, weights) + bias
 
-    #3）构造损失函数
-    error = tf.reduce_mean(tf.square(y_predict - y_true))
+    with tf.variable_scope('loss_function'):
+        #3）构造损失函数
+        error = tf.reduce_mean(tf.square(y_predict - y_true))
 
-    #4）优化损失
-    optimizer = tf.train.GradientDescentOptimizer(learning_rate = 0.01).minimize(error)
+    with tf.variable_scope('optimizer'):
+        #4）优化损失
+        optimizer = tf.train.GradientDescentOptimizer(learning_rate = 0.01).minimize(error)
+
+    #2_收集变量
+    tf.summary.scalar('error', error)
+    tf.summary.histogram('weights', weights)
+    tf.summary.histogram('bias', bias)
+
+    #3_合并变量
+    merged = tf.summary.merge_all()
+
+    #创建Saver对象
+    saver = tf.train.Saver()
 
     #显示的初始化变量
     init = tf.global_variables_initializer()
@@ -168,6 +183,9 @@ def liner_regression():
         #初始化变量
         sess.run(init)
 
+        #1_创建事件文件
+        file_writer = tf.summary.FileWriter('./demo/day_01/linear', graph = sess.graph)
+
         #查看初始化模型参数之后的值
         print('训练前模型参数为：权重%f，偏置%f，损失为%f' % (weights.eval(), bias.eval(), error.eval()))
 
@@ -175,7 +193,22 @@ def liner_regression():
         for i in range(1000):
             sess.run(optimizer)
             #print('第%d训练后模型参数为：权重%f，偏置%f，损失为%f' % (i + 1, weights.eval(), bias.eval(), error.eval()))
-        print('训练后模型参数为：权重%f，偏置%f，损失为%f' % (i + 1, weights.eval(), bias.eval(), error.eval()))
+
+            #运行合并变量操作
+            summary = sess.run(merged)
+            #将每次迭代后的变量写入事件文件
+            file_writer.add_summary(summary, i )
+            #保存模型
+            if i % 10 == 0:
+                saver.save(sess, './demo/model/my_linear.ckpt')
+
+        print('训练后模型参数为：权重%f，偏置%f，损失为%f' % (weights.eval(), bias.eval(), error.eval()))
+
+        #加载模型
+        """ if os.path.exists('./demo/day_01/model/checkpoint'):
+            saver.restore(sess, './demo/day_01/model/my_linear.ckpt')
+        
+        print('训练后模型参数为：权重%f，偏置%f，损失为%f' % (weights.eval(), bias.eval(), error.eval())) """
 
     return None
 
