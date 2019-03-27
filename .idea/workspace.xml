@@ -2,8 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7c3c8518-dd33-4eac-ad1e-1dced6e80cdf" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/train.py" beforeDir="false" afterPath="$PROJECT_DIR$/train.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/day_02/cifar10.tfrecords" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/day_02/day02_binary_read.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/day_02/day02_full_connectin.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/day_02/day02_picture.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/day_02/mnist_data/t10k-images-idx3-ubyte.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/day_02/mnist_data/t10k-labels-idx1-ubyte.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/day_02/mnist_data/train-images-idx3-ubyte.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/day_02/mnist_data/train-labels-idx1-ubyte.gz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cifar-10/data_batch_1" beforeDir="false" afterPath="$PROJECT_DIR$/cifar-10/data_batch_1.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cifar-10/data_batch_2" beforeDir="false" afterPath="$PROJECT_DIR$/cifar-10/data_batch_2.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cifar-10/data_batch_3" beforeDir="false" afterPath="$PROJECT_DIR$/cifar-10/data_batch_3.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cifar-10/data_batch_4" beforeDir="false" afterPath="$PROJECT_DIR$/cifar-10/data_batch_4.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cifar-10/data_batch_5" beforeDir="false" afterPath="$PROJECT_DIR$/cifar-10/data_batch_5.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cifar-10/test_batch" beforeDir="false" afterPath="$PROJECT_DIR$/cifar-10/test_batch.bin" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -19,12 +31,12 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/train.py">
+        <entry file="file://$PROJECT_DIR$/demo/day_02/day02_full_connectin.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="201">
-              <caret line="42" column="39" selection-start-line="42" selection-start-column="39" selection-end-line="42" selection-end-column="39" />
+            <state relative-caret-position="504">
+              <caret line="49" lean-forward="true" selection-start-line="49" selection-end-line="49" />
               <folding>
-                <element signature="e#0#9#0" expanded="true" />
+                <element signature="e#0#23#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -47,6 +59,7 @@
         <option value="$PROJECT_DIR$/dataloader/data_generator.py" />
         <option value="$PROJECT_DIR$/train.py" />
         <option value="$PROJECT_DIR$/models/cliquenet.py" />
+        <option value="$PROJECT_DIR$/demo/day_02/day02_full_connectin.py" />
       </list>
     </option>
   </component>
@@ -62,7 +75,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -78,12 +90,24 @@
             <path>
               <item name="CliqueNet" type="b2602c69:ProjectViewProjectNode" />
               <item name="CliqueNet" type="462c0819:PsiDirectoryNode" />
+              <item name="demo" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CliqueNet" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CliqueNet" type="462c0819:PsiDirectoryNode" />
+              <item name="demo" type="462c0819:PsiDirectoryNode" />
+              <item name="day_02" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CliqueNet" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CliqueNet" type="462c0819:PsiDirectoryNode" />
               <item name="imagenet_pytorch" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -196,16 +220,18 @@
       <workItem from="1552666473254" duration="513000" />
       <workItem from="1552667002360" duration="1118000" />
       <workItem from="1552720393932" duration="749000" />
+      <workItem from="1553654673973" duration="126000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="8452000" />
+    <option name="totallyTimeSpent" value="8578000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.14879356" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1508043" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -301,6 +327,16 @@
           <caret line="42" column="39" selection-start-line="42" selection-start-column="39" selection-end-line="42" selection-end-column="39" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/demo/day_02/day02_full_connectin.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="504">
+          <caret line="49" lean-forward="true" selection-start-line="49" selection-end-line="49" />
+          <folding>
+            <element signature="e#0#23#0" expanded="true" />
           </folding>
         </state>
       </provider>
